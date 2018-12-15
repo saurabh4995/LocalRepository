@@ -1,6 +1,13 @@
+"""
+This project is a simple represntation of all I learned about functions, data-structure and basics.
+I have made a tic-tac-toe game which can be played by two people on same desktop.
+Enjoy the game!! Let me know if any recomendayions for improving this game.
+"""
+#defining play borad 
 board = [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']]
 new_board = [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']]
 
+#this function will print board on screen
 def print_board(new_board):
     for i in range(0,3):
         print ("\t\t", end='')
@@ -8,6 +15,7 @@ def print_board(new_board):
             print (new_board[i][j]+' ', end='')
         print('\n')
 
+#this function checks wether input is valid or not
 def check_input(new_input, new_board):
     ls1 = new_input.split(' ')
     if ' ' not in new_input:
@@ -22,11 +30,13 @@ def check_input(new_input, new_board):
     else:
         return True
 
+#this function makes changes in the board.
 def play_on_board(new_board, new_input, symbol):
     ls = new_input.split(' ')
     new_board[int(ls[0])-1][int(ls[1])-1] = symbol
     print_board(new_board)
 
+#this function check if any of two player wins game.
 def check_winner(new_board, symbol):
     if (new_board[0][0]==new_board[1][0]==new_board[2][0]==symbol) or (new_board[0][1]==new_board[1][1]==new_board[2][1]==symbol) or (new_board[0][2]==new_board[1][2]==new_board[2][2]==symbol) or (new_board[0][0]==new_board[1][1]==new_board[2][2]==symbol) or (new_board[0][2]==new_board[1][1]==new_board[2][0]==symbol) or (new_board[0][0]==new_board[0][1]==new_board[0][2]==symbol) or (new_board[1][0]==new_board[1][1]==new_board[1][2]==symbol) or (new_board[2][0]==new_board[2][1]==new_board[2][2]==symbol):
         return True
@@ -34,6 +44,7 @@ def check_winner(new_board, symbol):
         return False
         
 
+#this is the main function wehere every other function is called and game is played
 def play_tic_tac(new_board):
     game = 'playing'
     print ("\t"+"Let's play TIC-TAC-TOE")
